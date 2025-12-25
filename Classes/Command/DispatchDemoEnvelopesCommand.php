@@ -5,6 +5,7 @@ declare(strict_types=1);
 
 namespace WapplerSystems\MessengerDemo\Command;
 
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -14,10 +15,12 @@ use TYPO3\CMS\Core\Configuration\ExtensionConfiguration as Typo3ExtensionConfigu
 use WapplerSystems\MessengerDemo\Configuration\ExtensionConfiguration;
 use WapplerSystems\MessengerDemo\Message\DemoJobMessage;
 
+#[AsCommand(
+    name: 'messenger-demo:dispatch',
+    description: 'Dispatch demo envelopes at configurable intervals to Symfony Messenger.',
+)]
 final class DispatchDemoEnvelopesCommand extends Command
 {
-    protected static string $defaultName = 'messenger-demo:dispatch';
-    protected static string $defaultDescription = 'Dispatch demo envelopes at configurable intervals to Symfony Messenger.';
 
     public function __construct(
         private readonly MessageBusInterface         $messageBus,

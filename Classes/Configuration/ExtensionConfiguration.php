@@ -39,6 +39,10 @@ final class ExtensionConfiguration
 
         foreach ($data as $k => $v) {
             if (property_exists($self, (string)$k)) {
+                if (is_int($self->{$k})) {
+                    $self->{$k} = (int)$v;
+                    continue;
+                }
                 $self->{$k} = is_string($v) ? trim($v) : $v;
             }
         }
