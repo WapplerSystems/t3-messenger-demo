@@ -9,6 +9,7 @@ services:
 
   # Command als Symfony Console Command
   WapplerSystems\MessengerDemo\Command\DispatchDemoEnvelopesCommand:
+    public: true
     tags:
       - name: 'console.command'
 
@@ -16,3 +17,15 @@ services:
   WapplerSystems\MessengerDemo\MessageHandler\DemoJobMessageHandler:
     tags:
       - name: 'messenger.message_handler'
+
+  messenger.transport.messenger-demo:
+    factory: [ '@TYPO3\CMS\Core\Messenger\DoctrineTransportFactory', 'createTransport' ]
+    class: 'Symfony\Component\Messenger\Bridge\Doctrine\Transport\DoctrineTransport'
+    arguments:
+      $options:
+        queue_name: 'messenger-demo'
+    tags:
+      - name: 'messenger.sender'
+        identifier: 'messenger-demo'
+      - name: 'messenger.receiver'
+        identifier: 'messenger-demo'
