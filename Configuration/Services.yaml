@@ -1,0 +1,18 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  WapplerSystems\MessengerDemo\:
+    resource: '../Classes/*'
+
+  # Command als Symfony Console Command
+  WapplerSystems\MessengerDemo\Command\DispatchDemoEnvelopesCommand:
+    tags:
+      - name: 'console.command'
+
+  # MessageHandler für Messenger
+  WapplerSystems\MessengerDemo\MessageHandler\DemoJobMessageHandler:
+    tags:
+      - name: 'messenger.message_handler'

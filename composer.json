@@ -1,0 +1,19 @@
+{
+  "name": "wapplersystems/messenger-demo",
+  "type": "typo3-cms-extension",
+  "description": "TYPO3 demo extension using Symfony Messenger to dispatch and process demo envelopes with random failures.",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "typo3/cms-core": "^13.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "WapplerSystems\\MessengerDemo\\": "Classes/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "messenger_demo"
+    }
+  }
+}
