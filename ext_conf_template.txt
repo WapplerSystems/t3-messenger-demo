@@ -1,0 +1,26 @@
+# cat=messenger_demo/basic; type=int; label=Batch size (messages per tick)
+batchSize=5
+
+# cat=messenger_demo/basic; type=int; label=Tick interval (seconds)
+tickIntervalSeconds=10
+
+# cat=messenger_demo/basic; type=int; label=Tick jitter (seconds, random 0..jitter)
+tickJitterSeconds=2
+
+# cat=messenger_demo/processing; type=int; label=Processing min (ms)
+processingMinMs=150
+
+# cat=messenger_demo/processing; type=int; label=Processing max (ms)
+processingMaxMs=800
+
+# cat=messenger_demo/processing; type=int; label=Failure rate (%)
+failRatePercent=15
+
+# cat=messenger_demo/routing; type=string; label=Transport name (Messenger routing target)
+transportName=async
+
+# cat=messenger_demo/limits; type=int; label=Max messages total (0 = unlimited)
+maxMessagesTotal=0
+
+# cat=messenger_demo/limits; type=int; label=Max runtime (seconds, 0 = unlimited)
+maxRuntimeSeconds=0

@@ -16,8 +16,8 @@ use WapplerSystems\MessengerDemo\Message\DemoJobMessage;
 
 final class DispatchDemoEnvelopesCommand extends Command
 {
-    protected static $defaultName = 'messenger-demo:dispatch';
-    protected static $defaultDescription = 'Dispatch demo envelopes at configurable intervals to Symfony Messenger.';
+    protected static string $defaultName = 'messenger-demo:dispatch';
+    protected static string $defaultDescription = 'Dispatch demo envelopes at configurable intervals to Symfony Messenger.';
 
     public function __construct(
         private readonly MessageBusInterface         $messageBus,
